@@ -1,0 +1,492 @@
+/*******************************************************************************
+ * Inter Science — custom styles
+ ******************************************************************************/
+
+@use "variables" as v;
+
+// ─── Hero Section ────────────────────────────────────────────────────────────
+
+.inter-hero {
+  background: linear-gradient(135deg, #111827 0%, #1a2744 55%, #0f3460 100%);
+  color: #ffffff;
+  padding: 4.5rem 3rem;
+  border-radius: 14px;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 107, 0, 0.12) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .inter-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 107, 0, 0.12);
+    color: v.$orange-color;
+    border: 1px solid rgba(255, 107, 0, 0.3);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+  }
+
+  .inter-hero-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.1rem;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+
+  .inter-hero-subtitle {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 580px;
+    margin-bottom: 2.25rem;
+    line-height: 1.7;
+  }
+
+  .inter-hero-actions {
+    display: flex;
+    gap: 0.875rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+
+    .btn {
+      padding: 0.7rem 1.6rem;
+      border-radius: 7px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition:
+        background 0.2s,
+        color 0.2s,
+        border-color 0.2s,
+        transform 0.15s;
+      text-decoration: none;
+    }
+
+    .inter-btn-primary {
+      background: v.$orange-color;
+      color: #fff;
+      border: 2px solid v.$orange-color;
+
+      &:hover {
+        background: v.$orange-color-dark;
+        border-color: v.$orange-color-dark;
+        color: #fff;
+        transform: translateY(-1px);
+      }
+    }
+
+    .inter-btn-outline {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.85);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+
+      &:hover {
+        border-color: v.$orange-color;
+        color: v.$orange-color;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  .inter-hero-areas {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    .area-tag {
+      background: rgba(255, 255, 255, 0.07);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 0.25rem 0.7rem;
+      border-radius: 5px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+// ─── Section Layout ───────────────────────────────────────────────────────────
+
+.inter-section {
+  margin-bottom: 4rem;
+
+  .inter-section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--global-divider-color);
+
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--global-text-color);
+      margin: 0;
+    }
+
+    a.inter-section-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--global-theme-color);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// ─── Mission / Research Areas ─────────────────────────────────────────────────
+
+.inter-mission {
+  margin-bottom: 3.5rem;
+
+  p.mission-lead {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--global-text-color-light);
+    max-width: 700px;
+  }
+}
+
+.research-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.research-area-card {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .ra-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--global-text-color);
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: var(--global-text-color-light);
+    line-height: 1.55;
+    margin: 0;
+  }
+}
+
+// ─── Team Cards ───────────────────────────────────────────────────────────────
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.team-card {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 12px;
+  padding: 1.75rem 1.25rem 1.5rem;
+  text-align: center;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  }
+
+  .team-avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--global-theme-color), #e55a00);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 0 auto 1.1rem;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .team-name {
+    display: block;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    color: var(--global-text-color);
+    line-height: 1.3;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration: none;
+    }
+  }
+
+  .team-role {
+    font-size: 0.8rem;
+    color: var(--global-theme-color);
+    font-weight: 600;
+    margin-bottom: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .team-bio {
+    font-size: 0.82rem;
+    color: var(--global-text-color-light);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .team-links {
+    display: flex;
+    justify-content: center;
+    gap: 0.65rem;
+
+    a {
+      color: var(--global-text-color-light);
+      font-size: 0.95rem;
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+}
+
+// ─── Team Page (full list) ─────────────────────────────────────────────────────
+
+.team-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.75rem;
+  margin-top: 1rem;
+}
+
+.team-page-card {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 14px;
+  overflow: hidden;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .team-page-card-top {
+    background: linear-gradient(135deg, #111827, #1a2744);
+    padding: 2rem 1.5rem 1rem;
+    text-align: center;
+    position: relative;
+
+    .team-page-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, v.$orange-color, #e55a00);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 0 auto 0.75rem;
+      overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, 0.15);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .team-page-name {
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .team-page-role {
+      color: v.$orange-color;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+  }
+
+  .team-page-card-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+
+    .team-page-bio {
+      font-size: 0.875rem;
+      color: var(--global-text-color-light);
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+    }
+
+    .team-page-areas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.1rem;
+
+      .area-pill {
+        background: rgba(255, 107, 0, 0.08);
+        color: var(--global-theme-color);
+        border: 1px solid rgba(255, 107, 0, 0.2);
+        padding: 0.18rem 0.6rem;
+        border-radius: 20px;
+        font-size: 0.73rem;
+        font-weight: 600;
+      }
+    }
+
+    .team-page-links {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+
+      a {
+        color: var(--global-text-color-light);
+        font-size: 1rem;
+        transition: color 0.2s;
+
+        &:hover {
+          color: var(--global-theme-color);
+        }
+      }
+
+      a.btn-profile {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 6px;
+        background: var(--global-theme-color);
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        margin-left: auto;
+
+        &:hover {
+          background: v.$orange-color-dark;
+          transform: translateY(-1px);
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+// ─── Contact Page ─────────────────────────────────────────────────────────────
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 10px;
+    padding: 1.25rem;
+
+    .contact-icon {
+      font-size: 1.3rem;
+      color: var(--global-theme-color);
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .contact-details {
+      h4 {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--global-text-color-light);
+        margin-bottom: 0.25rem;
+      }
+
+      p,
+      a {
+        font-size: 0.9rem;
+        color: var(--global-text-color);
+        margin: 0;
+        text-decoration: none;
+
+        &:hover {
+          color: var(--global-theme-color);
+        }
+      }
+    }
+  }
+}

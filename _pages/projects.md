@@ -2,10 +2,10 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Open-source research projects and tools from the Inter Science team.
 nav: true
-nav_order: 3
-display_categories: [work, fun]
+nav_order: 4
+display_categories: [AI, Quantum]
 horizontal: false
 ---
 

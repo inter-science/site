@@ -1,34 +1,23 @@
-"adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"ferreira":
+  - firstname: ["Diego", "D.", "Diego L. B.", "Diego Braga", "Diego Ferreira"]
+    url: /team/diego-ferreira/
 
-"podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"assumpção":
+  - firstname: ["Henrique", "H.", "Henrique Assumpção", "Henrique Soares"]
+    url: /team/henrique-assumpcao/
 
-"rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
+"assumpcao":
+  - firstname: ["Henrique", "H.", "Henrique Assumpção", "Henrique Soares"]
+    url: /team/henrique-assumpcao/
 
-"bach":
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
+"campos":
+  - firstname: ["Leandro", "L.", "Leandro Lacerda"]
+    url: /team/leandro-campos/
 
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+"grossi":
+  - firstname: ["Bruno", "B.", "Bruno E.", "Bruno Grossi"]
+    url: /team/bruno-grossi/
 
-"przibram":
-  - firstname: ["Karl"]
-    url: https://link.springer.com/article/10.1007/s00016-019-00242-z
-
-"schrodinger":
-  - firstname: ["Erwin"]
-    url: https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger
-
-"lorentz":
-  - firstname: ["Hendrik Antoon"]
-    url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
-
-"planck":
-  - firstname: ["Max"]
-    url: https://en.wikipedia.org/wiki/Max_Planck
+"murai":
+  - firstname: ["Fabricio", "F."]
+    url: https://homepages.dcc.ufmg.br/~fmurai/

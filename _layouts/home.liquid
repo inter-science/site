@@ -1,0 +1,128 @@
+---
+layout: default
+---
+
+<div class="post">
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section class="inter-hero">
+    <div class="inter-hero-badge">Inter Science</div>
+    <h1 class="inter-hero-title">Applied Research at Inter&amp;co</h1>
+    <p class="inter-hero-subtitle">
+      We advance the frontier of Artificial Intelligence and Quantum Computing
+      to build practical, high-impact solutions for financial services.
+    </p>
+    <div class="inter-hero-actions">
+      <a href="{{ '/publications/' | relative_url }}" class="btn inter-btn-primary">Our Research</a>
+      <a href="{{ '/team/' | relative_url }}" class="btn inter-btn-outline">Meet the Team</a>
+    </div>
+    <div class="inter-hero-areas">
+      <span class="area-tag">Artificial Intelligence</span>
+      <span class="area-tag">Quantum Computing</span>
+      <span class="area-tag">Machine Learning</span>
+      <span class="area-tag">Financial Services</span>
+    </div>
+  </section>
+
+  <!-- ── Mission ───────────────────────────────────────── -->
+  <div class="inter-mission">
+    {{ content }}
+  </div>
+
+  <!-- ── Research Areas ────────────────────────────────── -->
+  <section class="inter-section">
+    <div class="inter-section-header">
+      <h2>Research Areas</h2>
+      <a href="{{ '/projects/' | relative_url }}" class="inter-section-link">All projects →</a>
+    </div>
+    <div class="research-areas-grid">
+      <div class="research-area-card">
+        <h3>Artificial Intelligence</h3>
+        <p>
+          Large language models, evolutionary coding agents, generative AI,
+          and representation learning for large-scale transaction networks.
+        </p>
+      </div>
+      <div class="research-area-card">
+        <h3>Quantum Computing</h3>
+        <p>
+          Quantum machine learning algorithms, hardware-efficient QAOA,
+          and quantum feature maps for credit scoring and portfolio optimization.
+        </p>
+      </div>
+      <div class="research-area-card">
+        <h3>Financial ML</h3>
+        <p>
+          Fraud detection, risk modelling, recommender systems, and anomaly
+          detection at scale across Inter's financial ecosystem.
+        </p>
+      </div>
+      <div class="research-area-card">
+        <h3>Scientific Computing</h3>
+        <p>
+          High-performance numerical methods, hardware-accelerated special
+          functions, and accurate mathematical libraries for production systems.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured Publications ─────────────────────────── -->
+  {% if page.selected_papers %}
+    <section class="inter-section">
+      <div class="inter-section-header">
+        <h2>Recent Publications</h2>
+        <a href="{{ '/publications/' | relative_url }}" class="inter-section-link">All publications →</a>
+      </div>
+      {% include selected_papers.liquid %}
+    </section>
+  {% endif %}
+
+  <!-- ── Team Highlights ───────────────────────────────── -->
+  {% assign team = site.people | sort: "order" %}
+  {% if team.size > 0 %}
+    <section class="inter-section">
+      <div class="inter-section-header">
+        <h2>Our Team</h2>
+        <a href="{{ '/team/' | relative_url }}" class="inter-section-link">All members →</a>
+      </div>
+      <div class="team-grid">
+        {%- for person in team -%}
+          <div class="team-card">
+            <div class="team-avatar">
+              {%- if person.photo -%}
+                <img src="{{ person.photo | relative_url }}" alt="{{ person.title }}" />
+              {%- else -%}
+                {{- person.title | split: " " | first | slice: 0 -}}{{- person.title | split: " " | last | slice: 0 -}}
+              {%- endif -%}
+            </div>
+            <a class="team-name" href="{{ person.url | relative_url }}">{{ person.title }}</a>
+            <div class="team-role">{{ person.role }}</div>
+            <p class="team-bio">{{ person.short_bio | truncate: 100 }}</p>
+            <div class="team-links">
+              {%- if person.github -%}
+                <a href="https://github.com/{{ person.github }}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+              {%- endif -%}
+              {%- if person.website -%}
+                <a href="{{ person.website }}" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i></a>
+              {%- endif -%}
+              {%- if person.linkedin -%}
+                <a href="https://linkedin.com/in/{{ person.linkedin }}" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </section>
+  {% endif %}
+
+  <!-- ── Latest News ───────────────────────────────────── -->
+  {% if page.announcements and page.announcements.enabled %}
+    <section class="inter-section">
+      <div class="inter-section-header">
+        <h2>Latest News</h2>
+        <a href="{{ '/news/' | relative_url }}" class="inter-section-link">All news →</a>
+      </div>
+      {% include news.liquid limit=true %}
+    </section>
+  {% endif %}
+</div>

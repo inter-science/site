@@ -1,0 +1,79 @@
+image: ruby:3.3.5-slim
+
+variables:
+  JEKYLL_ENV: production
+  BUNDLE_PATH: vendor/bundle
+  # Disable Jekyll's incremental builds in CI for a clean output
+  JEKYLL_INCREMENTAL: "false"
+
+stages:
+  - build
+  - deploy
+
+# ── Gem cache — reused across pipelines on the same branch ───────────────────
+cache:
+  key: gems-$CI_COMMIT_REF_SLUG
+  paths:
+    - vendor/bundle
+
+# ── Build ─────────────────────────────────────────────────────────────────────
+build:
+  stage: build
+  before_script:
+    - apt-get update -qq
+    - apt-get install -y -qq --no-install-recommends
+        build-essential
+        git
+        imagemagick
+        nodejs
+        npm
+        python3
+        python3-pip
+        python3-venv
+        zlib1g-dev
+        libxml2-dev
+    - pip3 install --break-system-packages --upgrade nbconvert
+    - gem install bundler --no-document
+    - bundle config set --local path "$BUNDLE_PATH"
+    - bundle install --jobs 4 --retry 3
+  script:
+    - bundle exec jekyll build -d public
+    - npm install -g purgecss
+    - purgecss -c purgecss.config.js
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 week
+  rules:
+    # Run on pushes to main/master and on merge requests targeting them
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+  # Only trigger when site-relevant files change
+  changes:
+    - assets/**/*
+    - _sass/**/*
+    - _scripts/**/*
+    - "**/*.bib"
+    - "**/*.html"
+    - "**/*.js"
+    - "**/*.liquid"
+    - "**/*.md"
+    - "**/*.yml"
+    - Gemfile
+    - Gemfile.lock
+
+# ── Deploy to GitLab Pages ────────────────────────────────────────────────────
+pages:
+  stage: deploy
+  # Reuse the artifact from build — no rebuild needed
+  dependencies:
+    - build
+  script:
+    - echo "Deploying to GitLab Pages"
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 week
+  rules:
+    # Only publish from the default branch, not from merge requests
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"'
