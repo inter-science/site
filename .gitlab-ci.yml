@@ -45,22 +45,34 @@ build:
       - public
     expire_in: 1 week
   rules:
-    # Run on pushes to main/master and on merge requests targeting them
+    # Run on pushes to main/master and on merge requests targeting them,
+    # but only when site-relevant files change
     - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"'
+      changes:
+        - assets/**/*
+        - _sass/**/*
+        - _scripts/**/*
+        - "**/*.bib"
+        - "**/*.html"
+        - "**/*.js"
+        - "**/*.liquid"
+        - "**/*.md"
+        - "**/*.yml"
+        - Gemfile
+        - Gemfile.lock
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-  # Only trigger when site-relevant files change
-  changes:
-    - assets/**/*
-    - _sass/**/*
-    - _scripts/**/*
-    - "**/*.bib"
-    - "**/*.html"
-    - "**/*.js"
-    - "**/*.liquid"
-    - "**/*.md"
-    - "**/*.yml"
-    - Gemfile
-    - Gemfile.lock
+      changes:
+        - assets/**/*
+        - _sass/**/*
+        - _scripts/**/*
+        - "**/*.bib"
+        - "**/*.html"
+        - "**/*.js"
+        - "**/*.liquid"
+        - "**/*.md"
+        - "**/*.yml"
+        - Gemfile
+        - Gemfile.lock
 
 # ── Deploy to GitLab Pages ────────────────────────────────────────────────────
 pages:
