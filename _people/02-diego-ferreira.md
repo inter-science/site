@@ -7,7 +7,8 @@ email: diego.ferreira@inter.co
 github: diegobragaferreira
 website: https://diegoferreira.net/
 orcid_id: 0000-0002-7394-282X
-photo:
+linkedin: diego-braga-ferreira/
+photo: /assets/img/people/diego-ferreira.jpg
 short_bio: >
   PhD in Physics from UFMG, specializing in Quantum Computing
   for financial applications such as fraud detection

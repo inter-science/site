@@ -5,7 +5,7 @@ permalink: /team/leandro-campos/
 role: Senior Research Specialist
 github: leandrolcampos
 linkedin: leandrolcampos
-photo:
+photo: /assets/img/people/leandro-campos.jpeg
 short_bio: >
   Research engineer specializing in hardware-accelerated computing,
   special mathematical functions, and high-performance scientific computing.

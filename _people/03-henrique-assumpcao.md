@@ -7,7 +7,7 @@ email: henrique.soares@inter.co
 github: HenriqueAssumpcao
 website: https://henriqueassumpcao.github.io/
 linkedin: henriqueassumpcao
-photo:
+photo: /assets/img/people/henrique-assumpcao.jpeg
 short_bio: >
   MSc student in Computer Science at UFMG, working on representation learning
   for large transaction networks, language models, and recommender systems.
