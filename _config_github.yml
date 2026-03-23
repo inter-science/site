@@ -1,0 +1,4 @@
+# Overrides for GitHub Pages deployment.
+# Applied on top of _config.yml by the GitHub Actions workflow.
+url: "https://inter-science.github.io"
+baseurl: "/site"

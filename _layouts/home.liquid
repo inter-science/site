@@ -1,15 +1,13 @@
 ---
 layout: default
 ---
-
 <div class="post">
   <!-- ── Hero ─────────────────────────────────────────── -->
   <section class="inter-hero">
     <div class="inter-hero-badge">Inter Science</div>
     <h1 class="inter-hero-title">Applied Research at Inter&amp;co</h1>
     <p class="inter-hero-subtitle">
-      We advance the frontier of Artificial Intelligence and Quantum Computing
-      to build practical, high-impact solutions for financial services.
+      We advance the frontier of Artificial Intelligence and Quantum Computing to build practical, high-impact solutions for financial services.
     </p>
     <div class="inter-hero-actions">
       <a href="{{ '/publications/' | relative_url }}" class="btn inter-btn-primary">Our Research</a>
@@ -37,31 +35,19 @@ layout: default
     <div class="research-areas-grid">
       <div class="research-area-card">
         <h3>Artificial Intelligence</h3>
-        <p>
-          Large language models, evolutionary coding agents, generative AI,
-          and representation learning for large-scale transaction networks.
-        </p>
+        <p>Large language models, evolutionary coding agents, generative AI, and representation learning for large-scale transaction networks.</p>
       </div>
       <div class="research-area-card">
         <h3>Quantum Computing</h3>
-        <p>
-          Quantum machine learning algorithms, hardware-efficient QAOA,
-          and quantum feature maps for credit scoring and portfolio optimization.
-        </p>
+        <p>Quantum machine learning algorithms, hardware-efficient QAOA, and quantum feature maps for credit scoring and portfolio optimization.</p>
       </div>
       <div class="research-area-card">
         <h3>Financial ML</h3>
-        <p>
-          Fraud detection, risk modelling, recommender systems, and anomaly
-          detection at scale across Inter's financial ecosystem.
-        </p>
+        <p>Fraud detection, risk modelling, recommender systems, and anomaly detection at scale across Inter's financial ecosystem.</p>
       </div>
       <div class="research-area-card">
         <h3>Scientific Computing</h3>
-        <p>
-          High-performance numerical methods, hardware-accelerated special
-          functions, and accurate mathematical libraries for production systems.
-        </p>
+        <p>High-performance numerical methods, hardware-accelerated special functions, and accurate mathematical libraries for production systems.</p>
       </div>
     </div>
   </section>
@@ -78,7 +64,7 @@ layout: default
   {% endif %}
 
   <!-- ── Team Highlights ───────────────────────────────── -->
-  {% assign team = site.people | sort: "order" %}
+  {% assign team = site.people | sort: 'order' %}
   {% if team.size > 0 %}
     <section class="inter-section">
       <div class="inter-section-header">
@@ -90,9 +76,10 @@ layout: default
           <div class="team-card">
             <div class="team-avatar">
               {%- if person.photo -%}
-                <img src="{{ person.photo | relative_url }}" alt="{{ person.title }}" />
+                <img src="{{ person.photo | relative_url }}" alt="{{ person.title }}">
               {%- else -%}
-                {{- person.title | split: " " | first | slice: 0 -}}{{- person.title | split: " " | last | slice: 0 -}}
+                {{- person.title | split: ' ' | first | slice: 0 -}}
+                {{- person.title | split: ' ' | last | slice: 0 -}}
               {%- endif -%}
             </div>
             <a class="team-name" href="{{ person.url | relative_url }}">{{ person.title }}</a>
