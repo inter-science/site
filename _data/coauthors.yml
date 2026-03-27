@@ -15,9 +15,13 @@
     url: /team/leandro-campos/
 
 "grossi":
-  - firstname: ["Bruno", "B.", "Bruno E.", "Bruno Grossi"]
+  - firstname: ["Bruno", "B.", "Bruno E.", "Bruno Grossi", "Bruno Estolano", "BE"]
     url: /team/bruno-grossi/
 
 "murai":
   - firstname: ["Fabricio", "F."]
     url: https://homepages.dcc.ufmg.br/~fmurai/
+
+"coutinho":
+  - firstname: ["Gabriel", "G."]
+    url: https://homepages.dcc.ufmg.br/~gabriel/
