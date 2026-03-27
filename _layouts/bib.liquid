@@ -84,9 +84,14 @@
           {%- endif %}
           {%- if forloop.last and author_array_limit == author_array_size %}and {% endif -%}
         {% endif %}
+        {%- if coauthor_url contains "://" -%}
+          {%- assign resolved_coauthor_url = coauthor_url -%}
+        {%- else -%}
+          {%- assign resolved_coauthor_url = coauthor_url | relative_url -%}
+        {%- endif -%}
         {%- if author_is_self -%}
           {%- if coauthor_url -%}
-            <em><a href="{{ coauthor_url }}">{{- author.first }} {{ author_last_html -}}</a></em>
+            <em><a href="{{ resolved_coauthor_url }}">{{- author.first }} {{ author_last_html -}}</a></em>
           {%- else -%}
             <em>
               {{- author.first }}
@@ -95,7 +100,7 @@
           {%- endif -%}
         {%- else -%}
           {%- if coauthor_url -%}
-            <a href="{{ coauthor_url }}">
+            <a href="{{ resolved_coauthor_url }}">
               {{- author.first }}
               {{ author_last_html -}}
             </a>
